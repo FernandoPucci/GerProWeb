@@ -1,0 +1,15 @@
+.jumbotron {  
+    background-size: cover;
+    margin: 0;
+}
+
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+    
+    min-height: calc(100% - 64px);  /*  */
+    min-height: calc(100vh - 64px); /* */
+    
+    display: flex;
+   /* align-items: center;*/
+}
