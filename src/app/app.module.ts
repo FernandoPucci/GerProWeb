@@ -6,10 +6,12 @@ import { MaterializeModule } from 'angular2-materialize';
 
 
 import { AppComponent } from './app.component';
+import { NewTaskComponent } from './new-task/new-task.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewTaskComponent
   ],
   imports: [
     BrowserModule,
