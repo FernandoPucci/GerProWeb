@@ -11,7 +11,7 @@ import { NewTaskComponent } from './new-task/new-task.component';
 import { MyTasksComponent } from './my-tasks/my-tasks.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-const appRoutes: Routes = [  
+const appRoutes: Routes = [
   { path: 'newTask',      component: NewTaskComponent },
   { path: 'myTasks',      component: MyTasksComponent },
   {
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   }
   ,
   { path: '',
-    redirectTo: '/',
+    redirectTo: '#',
     pathMatch: 'full'
   }
   // ,
