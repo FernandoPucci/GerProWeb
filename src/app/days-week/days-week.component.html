@@ -1,0 +1,7 @@
+<div class="form-group">
+  <div *ngFor="let day of daysWeeks">
+    <label for="{{day.day}}-checkbox">{{day.name}}
+    <input type="{{day.day}}-checkbox"  id="{{day.day}}" checked="{{day.check}}">
+  </label>
+  </div>
+</div>

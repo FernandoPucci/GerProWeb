@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { MyTasksComponent } from './my-tasks/my-tasks.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DaysWeekComponent } from './days-week/days-week.component';
 
 const appRoutes: Routes = [
   { path: 'newTask',      component: NewTaskComponent },
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     AppComponent,
     NewTaskComponent,
     MyTasksComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DaysWeekComponent
   ],
   imports: [
     RouterModule.forRoot(

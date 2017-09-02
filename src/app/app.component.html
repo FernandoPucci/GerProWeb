@@ -21,12 +21,19 @@
 </nav>
 <div class="jumbotron jumbotron-fluid vertical-center">
   <div class="row justify-content-md-center">
-    <div class="content ">
+    <div class="content">
       <br/>
       <router-outlet></router-outlet>
     </div>
   </div>
 </div>
+<nav>
+  <div class="footer fixed-bottom bg-dark">
+    <div class="content nav-item">
+      <label>{{version}}</label>
+    </div>
+  </div>
+</nav>
 <!-- <br/>
 <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
   <li>
