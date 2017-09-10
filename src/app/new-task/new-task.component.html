@@ -1,27 +1,61 @@
 <form>
-
+  <p>{{taskCheck | json}}</p>
+  <p>{{zuzu | json}}</p>
   <div class="row">
-    <div class="input-group">
+    <div class="input-group form-group">
       <div class="row">
         <div class="col-6">
-          <input id="txtTaskName" type="text" class="form-control" placeholder="Tarefa" aria-describedby="txtTaskName">
+          <input id="txtTaskName" name="name" [(ngModel)]="taskCheck.name" type="text" class="form-control" placeholder="Tarefa" aria-describedby="txtTaskName">
         </div>
         <div class="col-6">
-          <input id="txtTaskDescription" type="text" class="form-control" placeholder="Descrição da Tarefa" aria-describedby="txtTaskDescription">
+          <input id="txtTaskDescription" name="description" [(ngModel)]="taskCheck.description" type="text" class="form-control" placeholder="Descrição da Tarefa"
+            aria-describedby="txtTaskDescription">
         </div>
       </div>
     </div>
   </div>
-   
-      <div *ngFor="let day of daysWeeks" class="checkbox check-primary">        
-        <input *ngIf="day.check; else uncheck" id="{{day.day}}-checkbox" type="checkbox" checked={{day.check}}  >
-        <ng-template #uncheck>
-          <input id="{{day.day}}-checkbox" type="checkbox">
-        </ng-template>
-        <label for="{{day.day}}-checkbox">            {{day.name}}         </label>
-      </div>
-  
-    <!-- <div class="checkbox check-primary ">
+
+
+  <div class="checkbox check-primary" *ngFor="let d of wd"  (change)="onWeeksDaysToggle($event)">
+    <div class="row">
+      <input id="chk{{d.name}}{{d.idx}}" type="checkbox" value="{{d.name}}">
+      <label for="chk{{d.name}}{{d.idx}}">{{d.label}}</label>
+    </div>
+    </div>
+
+  <!-- <div class="checkbox check-primary">
+    <div class="row">
+      <input id="chkSunday" type="checkbox" checked={{!taskCheck.weeks_days.sunday}}>
+      <label for="chkSunday">Domingo</label>
+    </div>
+    <div class="row">
+      <input id="chkMonday" type="checkbox" checked=false>
+      <label for="chkMonday">Segunda-Feira</label>
+    </div>
+    <div class="row">
+      <input id="chkTuesday" type="checkbox" checked={{taskCheck.weeks_days.tuesday}}>
+      <label for="chkTuesday">Terça-Feira</label>
+    </div>
+    <div class="row">
+      <input id="chkWednesday" type="checkbox" checked={{taskCheck.weeks_days.wednesday}}>
+      <label for="chkWednesday">Quarta-Feira</label>
+    </div>
+    <div class="row">
+      <input id="chkThursday" type="checkbox" [(ngModel)]=taskCheck.weeks_days.thursday>
+      <label for="chkThursday">Quinta-Feira</label>
+    </div>
+    <div class="row">
+      <input id="chkFriday" type="checkbox" checked={{taskCheck.weeks_days.friday}}>
+      <label for="chkFriday">Sexta-Feira</label>
+    </div>
+    <div class="row">
+      <input id="chkSaturay" type="checkbox" checked={{taskCheck.weeks_days.saturday}}>
+      <label for="chkSaturay">Sábado</label>
+    </div> -->
+
+  <!-- </div> -->
+
+  <!-- <div class="checkbox check-primary ">
         <input id="checkbox-1" type="checkbox" value="">
         <label for="checkbox-1">Guardar usuario</label>
     </div> -->
