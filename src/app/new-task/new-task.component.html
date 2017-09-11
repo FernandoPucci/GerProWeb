@@ -12,57 +12,42 @@
         </div>
       </div>
     </div>
-    <div class="checkbox check-primary row">
-        <p>
-          <input id=txtSunday type="checkbox" [(ngModel)]=taskCheck.weeks_days.sunday name="sunday"/>
-          <label for="txtSunday">Dom</label>
-        </p>
-        <p>
-          <input id=txtMonday type="checkbox" [(ngModel)]=taskCheck.weeks_days.monday name="monday"/>
-          <label for="txtMonday">Seg</label>
-        </p>
-        <p>
-    
-          <input id=txtTuesday type="checkbox" [(ngModel)]=taskCheck.weeks_days.tuesday name="tuesday"/>
-          <label for="txtTuesday">Ter</label>
-        </p>
-        <p>
-    
-          <input id=txtWednesday type="checkbox" [(ngModel)]=taskCheck.weeks_days.wednesday name="wednesday"/>
-          <label for="txtWednesday">Qua</label>
-        </p>
-        <p>
-    
-          <input id=txtThursday type="checkbox" [(ngModel)]=taskCheck.weeks_days.thursday name="thursday"/>
-          <label for="txtThursday">Qui</label>
-        </p>
-        <p>
-    
-          <input id=txtFriday type="checkbox" [(ngModel)]=taskCheck.weeks_days.friday name="friday"/>
-          <label for="txtFriday">Sex</label>
-    
-        </p>
-        <p>
-          <input id=txtSaturday type="checkbox" [(ngModel)]=taskCheck.weeks_days.saturday name="saturday"/>
-          <label for="txtSaturday">Sáb</label>
-        </p>
-        
-    
-      </div>
-    
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <input id=txtSunday type="checkbox" [(ngModel)]=taskCheck.weeks_days.sunday name="sunday" />
+      <label for="txtSunday">Dom</label>
+
+      <input id=txtMonday type="checkbox" [(ngModel)]=taskCheck.weeks_days.monday name="monday" />
+      <label for="txtMonday">Seg</label>
 
 
+      <input id=txtTuesday type="checkbox" [(ngModel)]=taskCheck.weeks_days.tuesday name="tuesday" />
+      <label for="txtTuesday">Ter</label>
+
+      <input id=txtWednesday type="checkbox" [(ngModel)]=taskCheck.weeks_days.wednesday name="wednesday" />
+      <label for="txtWednesday">Qua</label>
+
+      <input id=txtThursday type="checkbox" [(ngModel)]=taskCheck.weeks_days.thursday name="thursday" />
+      <label for="txtThursday">Qui</label>
+
+      <input id=txtFriday type="checkbox" [(ngModel)]=taskCheck.weeks_days.friday name="friday" />
+      <label for="txtFriday">Sex</label>
+
+      <input id=txtSaturday type="checkbox" [(ngModel)]=taskCheck.weeks_days.saturday name="saturday" />
+      <label for="txtSaturday">Sáb</label>
+    </div>
+  </div>
 
   <div class="row">
-    <div class="col-md-6">
+      <div class="col-md-1"></div>
+    <div class="col-md-4">
       <input class="btn" type="button" value="Limpar">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
       <input class="btn" type="button" value="Cadastrar">
     </div>
+    
   </div>
-
-
-
 </form>
