@@ -17,29 +17,15 @@ export class NewTaskComponent implements OnInit {
   taskCheck: any = {
     days_times: [],
     weeks_days: {
-       sunday: false,
-       monday: true,
-       tuesday: true,
-       wednesday: true,
-       thursday: true,
-       friday: true,
-       saturday: true
+      sunday: false,
+      monday: false,
+      tuesday: false,
+      wednesday: false,
+      thursday: false,
+      friday: false,
+      saturday: false
     }
   };
-
-  wd: any = [
-    { idx: 0, 'chk': false, name: 'sunday', label: 'Domingo' },
-    { idx: 1, 'chk': true, name: 'monday', label: 'Segunda-Feira' },
-    { idx: 2, 'chk': true, name: 'tuesday', label: 'Terça-Feira' },
-    { idx: 3, 'chk': true, name: 'wednesday', label: 'Quarta-Feira' },
-    { idx: 4, 'chk': true, name: 'thursday', label: 'Quinta-Feira' },
-    { idx: 5, 'chk': true, name: 'friday', label: 'Sexta-Feira' },
-    { idx: 6, 'chk': true, name: 'saturday', label: 'Sábado' }
-  ];
-
-
-
-  //weekDays: any = [];
 
 
   //   { "name": "testes Funções DEV 2",
@@ -86,25 +72,6 @@ export class NewTaskComponent implements OnInit {
   ngOnInit() {
 
 
-  }
-
-  onWeeksDaysToggle($event) {
-
-    console.log($event.target.checked);
-    console.log($event.target.value);
-
-    console.log(this.wd.find((item => item.name === $event.target.value)));
-    //  if ($event.target.checked) {label
-    //this.taskCheck.weeks_days  = this.wd; 
-//      console.log(this.taskCheck.weeks_days);
-      
-      //  this.taskCheck.weeks_days.push($event.target.value);
-    //  } else {
-    //   var index = this.taskCheck.week_days.indexOf(day);
-
-    //   this.taskCheck.week_days.splice(index, 1);
-
-    // }
   }
 
 }
