@@ -11,9 +11,6 @@ import * as globals from '../globals';
 })
 export class NewTaskComponent implements OnInit {
 
-  daysWeeks = globals.DAYS_WEEKS;
-
-
   taskCheck: any = {
     days_times: [],
     weeks_days: {
