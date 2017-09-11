@@ -1,5 +1,6 @@
+
 <form #f="ngForm">
-  <!-- <p>{{taskCheck | json}}</p> -->
+  
   <div class="row">
     <div class="input-group form-group">
       <div class="row">
@@ -15,34 +16,33 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <input id=txtSunday type="checkbox" [(ngModel)]=taskCheck.weeks_days.sunday name="sunday" />
-      <label for="txtSunday">Dom</label>
+      <input id=chkSunday type="checkbox" [(ngModel)]=taskCheck.weeks_days.sunday name="sunday" />
+      <label for="chkSunday">Dom</label>
 
-      <input id=txtMonday type="checkbox" [(ngModel)]=taskCheck.weeks_days.monday name="monday" />
-      <label for="txtMonday">Seg</label>
+      <input id=chkMonday type="checkbox" [(ngModel)]=taskCheck.weeks_days.monday name="monday" />
+      <label for="chkMonday">Seg</label>
 
+      <input id=chkTuesday type="checkbox" [(ngModel)]=taskCheck.weeks_days.tuesday name="tuesday" />
+      <label for="chkTuesday">Ter</label>
 
-      <input id=txtTuesday type="checkbox" [(ngModel)]=taskCheck.weeks_days.tuesday name="tuesday" />
-      <label for="txtTuesday">Ter</label>
+      <input id=chkWednesday type="checkbox" [(ngModel)]=taskCheck.weeks_days.wednesday name="wednesday" />
+      <label for="chkWednesday">Qua</label>
 
-      <input id=txtWednesday type="checkbox" [(ngModel)]=taskCheck.weeks_days.wednesday name="wednesday" />
-      <label for="txtWednesday">Qua</label>
+      <input id=chkThursday type="checkbox" [(ngModel)]=taskCheck.weeks_days.thursday name="thursday" />
+      <label for="chkThursday">Qui</label>
 
-      <input id=txtThursday type="checkbox" [(ngModel)]=taskCheck.weeks_days.thursday name="thursday" />
-      <label for="txtThursday">Qui</label>
+      <input id=chkFriday type="checkbox" [(ngModel)]=taskCheck.weeks_days.friday name="friday" />
+      <label for="chkFriday">Sex</label>
 
-      <input id=txtFriday type="checkbox" [(ngModel)]=taskCheck.weeks_days.friday name="friday" />
-      <label for="txtFriday">Sex</label>
-
-      <input id=txtSaturday type="checkbox" [(ngModel)]=taskCheck.weeks_days.saturday name="saturday" />
-      <label for="txtSaturday">Sáb</label>
+      <input id=chkSaturday type="checkbox" [(ngModel)]=taskCheck.weeks_days.saturday name="saturday" />
+      <label for="chkSaturday">Sáb</label>
     </div>
   </div>
 
   <div class="row">
       <div class="col-md-1"></div>
     <div class="col-md-4">
-      <input class="btn" type="button" value="Limpar">
+      <input class="btn" (click)="eraseAll()" type="button" value="Limpar">
     </div>
     <div class="col-md-1"></div>
     <div class="col-md-4">
@@ -51,3 +51,4 @@
     
   </div>
 </form>
+<p>{{taskCheck | json}}</p>

@@ -74,4 +74,19 @@ export class NewTaskComponent implements OnInit {
 
   }
 
+  eraseAll() {
+    this.taskCheck = {
+      days_times: [],
+      weeks_days: {
+        sunday: false,
+        monday: false,
+        tuesday: false,
+        wednesday: false,
+        thursday: false,
+        friday: false,
+        saturday: false
+      }
+    };
+  }
+
 }
