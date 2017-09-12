@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { environment } from './../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import * as globals from '../globals';
