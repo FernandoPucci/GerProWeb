@@ -1,6 +1,10 @@
-
+ <div  style="width: 900px">
+    <div class="col-md-12">
+{{taskCheck | json}} 
+ </div>
+</div> 
 <form #f="ngForm">
-  
+
   <div class="row">
     <div class="input-group form-group">
       <div class="row">
@@ -14,8 +18,52 @@
       </div>
     </div>
   </div>
+
+  <div class="row form-group">
+    <div class="col-md-12">
+      <label for="checkerId">Conferente:</label>
+      <select name="checkerId" id="checker" [(ngModel)]="taskCheck.user_checker_id" class="form-control">
+        <option value="0">Selecione...</option>
+        <option  *ngFor="let c of checkers" value="{{c.id}}">{{c.name}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-12">
+      <label for="place">Locais:</label>
+      <select name="placeId" id="place" [(ngModel)]="taskCheck.place_id" class="form-control">
+        <option value="">Selecione...</option>
+        <option *ngFor="let p of places" value="{{p.id}}">{{p.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-6">
+      <label for="periodicity">Periodicidade:</label>
+      <select name="periodicityId" id="periodicity" [(ngModel)]="taskCheck.periodicity_id" class="form-control">
+        <option value="">Selecione...</option>
+        <option *ngFor="let p of periodicities"  value="{{p.key_value}}">{{p.key_name}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-6">
+      <label for="notificationId">Tipo de Notificação</label>
+      <select name="notificationId" id="notification" [(ngModel)]="taskCheck.notifications" class="form-control">
+        <option value="">Selecione...</option>
+        <option *ngFor="let n of notifications" value="{{n.key_value}}">{{n.key_name}}</option>
+      </select>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
+      <label>Dias da Semana:</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+
       <input id=chkSunday type="checkbox" [(ngModel)]=taskCheck.weeks_days.sunday name="sunday" />
       <label for="chkSunday">Dom</label>
 
@@ -38,9 +86,9 @@
       <label for="chkSaturday">Sáb</label>
     </div>
   </div>
-  
+
   <div class="row">
-      <div class="col-md-1"></div>
+    <div class="col-md-1"></div>
     <div class="col-md-4">
       <input class="btn" (click)="eraseAll()" type="button" value="Limpar">
     </div>
@@ -48,9 +96,11 @@
     <div class="col-md-4">
       <input class="btn" type="button" value="Cadastrar">
     </div>
-    
+
   </div>
 
-  
+
+
+
+
 </form>
-<!-- <p>{{taskCheck | json}}</p> -->

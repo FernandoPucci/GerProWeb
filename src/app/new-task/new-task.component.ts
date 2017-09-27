@@ -1,3 +1,4 @@
+import { ScreenService } from './../services/screen.service';
 import { environment } from './../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import * as globals from '../globals';
@@ -6,9 +7,16 @@ import * as globals from '../globals';
 @Component({
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
-  styleUrls: ['./new-task.component.css']
+  styleUrls: ['./new-task.component.css'],
+  providers: [ScreenService]
 })
 export class NewTaskComponent implements OnInit {
+
+  daysTimes: any[];
+  places: any[];
+  notifications: any[];
+  periodicities: any[];
+  checkers: any[];
 
   taskCheck: any = {
     days_times: [],
@@ -45,7 +53,7 @@ export class NewTaskComponent implements OnInit {
   //                "notification_type_id": 19,
   //                "pre_notify_days": 0,
   //                "pre_notify_hours": 0,
-  //                "pre_notify_minutes": 5Domingo, = $event.target.checked;
+  //                "pre_notify_minutes": 5,
   //                "notify_again_every": 5
   //            }
   //        ],
@@ -63,11 +71,13 @@ export class NewTaskComponent implements OnInit {
   //     }
 
 
-  constructor() { }
+  constructor(private screenService: ScreenService) { }
 
   ngOnInit() {
-
-
+    this.screenService.getPlaces().subscribe(places => this.places = places);
+    this.screenService.getNotifications().subscribe(notifications => this.notifications = notifications);
+    this.screenService.getPeriodicities().subscribe(periodicities => this.periodicities = periodicities);
+    this.screenService.getUserCheckers(1).subscribe(checkers => this.checkers = checkers);
   }
 
   eraseAll() {

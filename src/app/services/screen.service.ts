@@ -14,6 +14,17 @@ export class ScreenService {
     return this.http.get(environment.SERVER_API_PATH + 'companies/places?company_id=' + globals.DEFAULT_COMPANY).map(res => res.json());
   }
 
+  getNotifications(){
+    return this.http.get(environment.SERVER_API_PATH + 'parameters?category_name=tipos_notificacoes').map(res => res.json());
+  }
+
+  getPeriodicities(){
+    return this.http.get(environment.SERVER_API_PATH + 'parameters?category_name=periodicidades').map(res => res.json());
+  }
+
+  getUserCheckers(companyId){
+    return this.http.get(environment.SERVER_API_PATH + 'users').map(res => res.json());
+  }
 
 
 }
