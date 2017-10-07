@@ -1,11 +1,12 @@
 <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content"
     aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon"></span>
   </button>
 
   <!-- Brand -->
-  <a class="navbar-brand pull-left" href="#"><img src="/assets/images/gerpro-nav.png">&nbsp;{{title}}</a>
+  <a class="navbar-brand pull-left" href="#">
+    <img src="/assets/images/gerpro-nav.png">&nbsp;{{title}}</a>
 
   <!-- Links -->
   <div class="collapse navbar-collapse" id="nav-content">
@@ -21,10 +22,15 @@
 </nav>
 <div class="jumbotron jumbotron-fluid vertical-center">
   <div class="row justify-content-md-center">
-    <div class="content">
+    <div class="col-1-md">
+    </div>
+
+    <div class="col-10-md content">
       <br/>
       <router-outlet></router-outlet>
     </div>
+
+    <div class="col-1-md"></div>
   </div>
 </div>
 <nav>
