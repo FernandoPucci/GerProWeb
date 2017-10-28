@@ -11,6 +11,7 @@ import { NewTaskComponent } from './new-task/new-task.component';
 import { MyTasksComponent } from './my-tasks/my-tasks.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DaysWeekComponent } from './days-week/days-week.component';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 const appRoutes: Routes = [
   { path: 'newTask',      component: NewTaskComponent },
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     NewTaskComponent,
     MyTasksComponent,
     PageNotFoundComponent,
-    DaysWeekComponent
+    DaysWeekComponent,
+    CapitalizePipe
   ],
   imports: [
     RouterModule.forRoot(

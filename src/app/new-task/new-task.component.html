@@ -43,7 +43,7 @@
       <label for="periodicity">Periodicidade:</label>
       <select name="periodicityId" id="periodicity" [(ngModel)]="taskCheck.periodicity_id" class="form-control">
         <option value="">Selecione...</option>
-        <option *ngFor="let p of periodicities"  value="{{p.key_value}}">{{p.key_name}}</option>
+        <option *ngFor="let p of periodicities"  value="{{p.key_value}}">{{p.key_name | capitalize: true}}</option>
       </select>
     </div>
 
@@ -51,7 +51,7 @@
       <label for="notificationId">Tipo de Notificação</label>
       <select name="notificationId" id="notification" [(ngModel)]="taskCheck.notifications" class="form-control">
         <option value="">Selecione...</option>
-        <option *ngFor="let n of notifications" value="{{n.key_value}}">{{n.key_name}}</option>
+        <option *ngFor="let n of notifications" value="{{n.key_value}}">{{n.key_name | capitalize: true}}</option>
       </select>
     </div>
   </div>

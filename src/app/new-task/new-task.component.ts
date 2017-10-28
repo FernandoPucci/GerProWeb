@@ -1,3 +1,4 @@
+import { CapitalizePipe } from './../pipes/capitalize.pipe';
 import { ScreenService } from './../services/screen.service';
 import { environment } from './../../environments/environment';
 import { Component, OnInit } from '@angular/core';
