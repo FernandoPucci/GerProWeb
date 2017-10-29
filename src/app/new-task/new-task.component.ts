@@ -1,7 +1,11 @@
+import { ConfirmComponent } from './../confirm/confirm.component';
+import { AddNotificationComponent } from './../add-notification/add-notification.component';
+import { DialogService } from 'ng2-bootstrap-modal';
 import { CapitalizePipe } from './../pipes/capitalize.pipe';
 import { ScreenService } from './../services/screen.service';
 import { environment } from './../../environments/environment';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { MaterializeAction } from 'angular2-materialize';
 import * as globals from '../globals';
 
 
@@ -63,7 +67,7 @@ export class NewTaskComponent implements OnInit {
   //                "sunday": true,
   //                "monday": true,
   //                "tuesday": true,
-  //                "wednesday": true,
+  //                "wednesday": tMaterializeActionrue,
   //                "thursday": true,
   //                "friday": true,.target.
   //                "saturday": true
@@ -72,7 +76,7 @@ export class NewTaskComponent implements OnInit {
   //     }
 
 
-  constructor(private screenService: ScreenService) { }
+  constructor(private screenService: ScreenService, private dialogService: DialogService) { }
 
   ngOnInit() {
     this.screenService.getPlaces().subscribe(places => this.places = places);
@@ -94,6 +98,19 @@ export class NewTaskComponent implements OnInit {
         saturday: false
       }
     };
+  }
+
+  showAddNotificationType() {
+    let disposable = this.dialogService.addDialog(AddNotificationComponent, {
+      title: 'Adicionar Notificação',
+      message: ''
+    })
+      .subscribe((isConfirmed) => {
+        //We get dialog result
+        if (isConfirmed) {
+          // TODO: push a notification in notifications[]
+        }
+      });
   }
 
 }

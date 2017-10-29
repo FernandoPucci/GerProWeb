@@ -1,8 +1,8 @@
- <div  style="width: 900px">
-    <div class="col-md-12">
-{{taskCheck | json}} 
- </div>
-</div> 
+<div style="width: 900px">
+  <div class="col-md-12">
+    {{taskCheck | json}}
+  </div>
+</div>
 <form #f="ngForm">
 
   <div class="row">
@@ -24,7 +24,7 @@
       <label for="checkerId">Conferente:</label>
       <select name="checkerId" id="checker" [(ngModel)]="taskCheck.user_checker_id" class="form-control">
         <option value="0">Selecione...</option>
-        <option  *ngFor="let c of checkers" value="{{c.id}}">{{c.name}}</option>
+        <option *ngFor="let c of checkers" value="{{c.id}}">{{c.name}}</option>
       </select>
     </div>
   </div>
@@ -43,16 +43,22 @@
       <label for="periodicity">Periodicidade:</label>
       <select name="periodicityId" id="periodicity" [(ngModel)]="taskCheck.periodicity_id" class="form-control">
         <option value="">Selecione...</option>
-        <option *ngFor="let p of periodicities"  value="{{p.key_value}}">{{p.key_name | capitalize: true}}</option>
+        <option *ngFor="let p of periodicities" value="{{p.key_value}}">{{p.key_name | capitalize: true}}</option>
       </select>
     </div>
 
-    <div class="col-md-6">
-      <label for="notificationId">Tipo de Notificação</label>
-      <select name="notificationId" id="notification" [(ngModel)]="taskCheck.notifications" class="form-control">
-        <option value="">Selecione...</option>
-        <option *ngFor="let n of notifications" value="{{n.key_value}}">{{n.key_name | capitalize: true}}</option>
-      </select>
+    <div class="col-md-4 inline">
+      <div class="row inline">
+        <div class="col-md-6">
+          <label for="notificationId">Tipo de Notificação</label>
+        </div>
+        <div class="col-md-2 ">
+          <a class="btn-floating btn waves-effect waves-light green " (click)="showAddNotificationType()">
+            <i class="material-icons">add_circle_outline</i>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
   <div class="row">
@@ -66,7 +72,6 @@
 
       <input id=chkSunday type="checkbox" [(ngModel)]=taskCheck.weeks_days.sunday name="sunday" />
       <label for="chkSunday">Dom</label>
-
       <input id=chkMonday type="checkbox" [(ngModel)]=taskCheck.weeks_days.monday name="monday" />
       <label for="chkMonday">Seg</label>
 
@@ -98,9 +103,4 @@
     </div>
 
   </div>
-
-
-
-
-
 </form>
