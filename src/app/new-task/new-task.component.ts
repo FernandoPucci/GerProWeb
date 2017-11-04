@@ -113,4 +113,8 @@ export class NewTaskComponent implements OnInit {
       });
   }
 
+  getAddedNotification(event){
+    console.log(event.target);
+  }
+
 }

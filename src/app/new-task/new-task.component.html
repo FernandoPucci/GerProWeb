@@ -53,7 +53,7 @@
           <label for="notificationId">Tipo de Notificação</label>
         </div>
         <div class="col-md-2 ">
-          <a class="btn-floating btn waves-effect waves-light green " (click)="showAddNotificationType()">
+          <a class="btn-floating btn waves-effect waves-light green " (click)="showAddNotificationType()" >
             <i class="material-icons">add_circle_outline</i>
           </a>
         </div>
@@ -103,4 +103,6 @@
     </div>
 
   </div>
+  <app-add-notification (notificationToAdd)="getAddedNotification($event)"></app-add-notification>
+
 </form>
