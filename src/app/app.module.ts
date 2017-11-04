@@ -15,6 +15,7 @@ import { DaysWeekComponent } from './days-week/days-week.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { AddNotificationComponent } from './add-notification/add-notification.component';
+import { ZeroLeadingPipe } from './pipes/zero-leading.pipe';
 
 const appRoutes: Routes = [
   { path: 'newTask',      component: NewTaskComponent },
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     DaysWeekComponent,
     CapitalizePipe,
     ConfirmComponent,
-    AddNotificationComponent
+    AddNotificationComponent,
+    ZeroLeadingPipe
   ],
   imports: [
     RouterModule.forRoot(
