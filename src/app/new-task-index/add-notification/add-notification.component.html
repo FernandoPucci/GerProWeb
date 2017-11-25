@@ -1,0 +1,68 @@
+<div class="modalAdd modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" (click)="close()">&times;</button>
+      <h4 class="modal-title">{{title}}</h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="notificationId">Tipo de Notificação</label>
+        </div>
+        <div class="col-md-6">
+          <select name="notificationId" id="notification" [(ngModel)]="notification.notification_type_id" class="form-control">
+            <option value="">Selecione...</option>
+            <option *ngFor="let n of notifications" value="{{n.key_value}}">{{n.key_name | capitalize: true}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <label for="hoursBeforeId">Avisar antes:</label>
+        </div>
+        <div class="col-md-5">
+          <select name="hoursBeforeId" id="hoursBefore" [(ngModel)]="notification.pre_notify_hours" class="form-control">
+            <option *ngFor="let h of hours" value="{{h.hour | zeroLeading:2}}">{{h.hour | zeroLeading:2}}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="hoursBeforeId">Horas</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-5">
+          <select name="minutesBeforeId" id="minutesBefore" [(ngModel)]="notification.pre_notify_minutes" class="form-control">
+            <option *ngFor="let m of minutes" value="{{m.minute | zeroLeading:2}}">{{m.minute | zeroLeading:2}}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="minutesBeforeId">Minutos</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-5">
+          <select name="daysBeforeId" id="daysBefore" [(ngModel)]="notification.pre_notify_days" class="form-control">
+            <option *ngFor="let d of days" value="{{d.day}}">{{d.day}}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="daysBeforeId">Dias</label>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
+      <button type="button" class="btn btn-default" (click)="close()">Cancel</button>
+    </div>
+  </div>
+  <div class="col-md-12">
+    {{notification | json}}
+  </div>
+</div>

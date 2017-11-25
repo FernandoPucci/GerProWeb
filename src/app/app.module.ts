@@ -1,3 +1,6 @@
+
+import { NewTaskComponent } from './new-task-index/new-task/new-task.component';
+import { AddNotificationComponent } from './new-task-index/add-notification/add-notification.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -8,21 +11,21 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 
 
 import { AppComponent } from './app.component';
-import { NewTaskComponent } from './new-task/new-task.component';
+import { NewTaskIndexModule } from './new-task-index/new-task-index.module';
 import { MyTasksComponent } from './my-tasks/my-tasks.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DaysWeekComponent } from './days-week/days-week.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { ConfirmComponent } from './confirm/confirm.component';
-import { AddNotificationComponent } from './add-notification/add-notification.component';
 import { ZeroLeadingPipe } from './pipes/zero-leading.pipe';
+import { IndexNewTaskComponent } from 'app/new-task-index/index-new-task/index-new-task.component';
 
 const appRoutes: Routes = [
-  { path: 'newTask',      component: NewTaskComponent },
-  { path: 'myTasks',      component: MyTasksComponent },
+  { path: 'newTask', component: IndexNewTaskComponent },
+  { path: 'myTasks', component: MyTasksComponent },
   {
     path: 'new-task',
-    component: NewTaskComponent,
+    component: NewTaskIndexModule,
     data: { title: 'Nova Tarefa' }
   },
   {
@@ -31,7 +34,8 @@ const appRoutes: Routes = [
     data: { title: 'Minhas Tarefas' }
   }
   ,
-  { path: '',
+  {
+    path: '',
     redirectTo: '#',
     pathMatch: 'full'
   }
@@ -42,31 +46,26 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    NewTaskComponent,
     MyTasksComponent,
     PageNotFoundComponent,
     DaysWeekComponent,
-    CapitalizePipe,
-    ConfirmComponent,
-    AddNotificationComponent,
-    ZeroLeadingPipe
+    ConfirmComponent
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
-    //  { enableTracing: true } // <-- debugging purposes only
+      //  { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
     FormsModule,
     HttpModule,
     MaterializeModule,
     RouterModule,
-    BootstrapModalModule
+    BootstrapModalModule,
+    NewTaskIndexModule
   ],
   providers: [],
   entryComponents: [
-    ConfirmComponent,
-    AddNotificationComponent
   ],
   bootstrap: [AppComponent]
 })

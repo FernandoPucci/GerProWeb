@@ -1,12 +1,15 @@
-import { ConfirmComponent } from './../confirm/confirm.component';
+import { ConfirmComponent } from '../../confirm/confirm.component';
 import { AddNotificationComponent } from './../add-notification/add-notification.component';
 import { DialogService } from 'ng2-bootstrap-modal';
-import { CapitalizePipe } from './../pipes/capitalize.pipe';
-import { ScreenService } from './../services/screen.service';
-import { environment } from './../../environments/environment';
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { CapitalizePipe } from '../../pipes/capitalize.pipe';
+import { ScreenService } from './../../services/screen.service';
+import { environment } from './../../../environments/environment';
+import { Component, OnInit, EventEmitter, Input, SimpleChanges } from '@angular/core';
 import { MaterializeAction } from 'angular2-materialize';
-import * as globals from '../globals';
+import * as globals from '../../globals';
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+
+
 
 
 @Component({
@@ -15,16 +18,16 @@ import * as globals from '../globals';
   styleUrls: ['./new-task.component.css'],
   providers: [ScreenService]
 })
-export class NewTaskComponent implements OnInit {
+export class NewTaskComponent implements OnInit, OnChanges {
 
   daysTimes: any[];
   places: any[];
-  notifications: any[];
   periodicities: any[];
   checkers: any[];
 
   taskCheck: any = {
     days_times: [],
+    notifications: [],
     weeks_days: {
       sunday: false,
       monday: false,
@@ -53,7 +56,7 @@ export class NewTaskComponent implements OnInit {
   //                "minute": 30
   //            }
   //        ],
-  //        "notifications": [
+  //  "notifications": [
   //            {
   //                "notification_type_id": 19,
   //                "pre_notify_days": 0,
@@ -74,13 +77,16 @@ export class NewTaskComponent implements OnInit {
   //            }weeks_days
 
   //     }
-
+  @Input() notify: any;
 
   constructor(private screenService: ScreenService, private dialogService: DialogService) { }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
+
   ngOnInit() {
     this.screenService.getPlaces().subscribe(places => this.places = places);
-    this.screenService.getNotifications().subscribe(notifications => this.notifications = notifications);
     this.screenService.getPeriodicities().subscribe(periodicities => this.periodicities = periodicities);
     this.screenService.getUserCheckers(1).subscribe(checkers => this.checkers = checkers);
   }
@@ -105,16 +111,17 @@ export class NewTaskComponent implements OnInit {
       title: 'Adicionar Notificação',
       message: ''
     })
-      .subscribe((isConfirmed) => {
-        //We get dialog result
-        if (isConfirmed) {
-          // TODO: push a notification in notifications[]
+      .subscribe((notificationToAdd) => {
+        // We get dialog result
+        if (notificationToAdd) {
+          this.taskCheck.notifications.push(notificationToAdd);
         }
       });
   }
 
-  getAddedNotification(event){
-    console.log(event.target);
+  getAddedNotification(event) {
+    console.log('@@@@ ACIVATED!');
+    console.log(event);
   }
 
 }
