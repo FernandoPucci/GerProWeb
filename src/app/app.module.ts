@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
 import { RouterModule, Routes } from '@angular/router';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { NgProgressModule } from 'ngx-progressbar';
 
 
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { ZeroLeadingPipe } from './pipes/zero-leading.pipe';
 import { IndexNewTaskComponent } from 'app/new-task-index/index-new-task/index-new-task.component';
+import { NgProgress } from 'ngx-progressbar/src/services/progress.service';
 
 const appRoutes: Routes = [
   { path: 'newTask', component: IndexNewTaskComponent },
@@ -49,7 +51,8 @@ const appRoutes: Routes = [
     MyTasksComponent,
     PageNotFoundComponent,
     DaysWeekComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    
   ],
   imports: [
     RouterModule.forRoot(
@@ -62,7 +65,8 @@ const appRoutes: Routes = [
     MaterializeModule,
     RouterModule,
     BootstrapModalModule,
-    NewTaskIndexModule
+    NewTaskIndexModule,
+    NgProgressModule
   ],
   providers: [],
   entryComponents: [

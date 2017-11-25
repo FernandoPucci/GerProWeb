@@ -3,17 +3,20 @@ import { NewTaskComponent } from './new-task/new-task.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgProgressModule } from 'ngx-progressbar';
+
 import { CapitalizePipe } from 'app/pipes/capitalize.pipe';
 import { ZeroLeadingPipe } from 'app/pipes/zero-leading.pipe';
 import { IndexNewTaskComponent } from './index-new-task/index-new-task.component';
 
 
 
-@NgModule({  
+@NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgProgressModule
   ],
   declarations: [
     NewTaskComponent,

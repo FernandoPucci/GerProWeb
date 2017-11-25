@@ -2,6 +2,7 @@ import { ScreenService } from './../../services/screen.service';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { DialogComponent } from 'ng2-bootstrap-modal';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgProgress } from 'ngx-progressbar';
 export interface AddNotificationModel {
   title: string;
   message: string; // optional
@@ -45,17 +46,24 @@ export class AddNotificationComponent extends DialogComponent<AddNotificationMod
     notify_again_every: 0
   };
 
-  constructor(dialogService: DialogService, private screenService: ScreenService) {
+  constructor(dialogService: DialogService, private screenService: ScreenService, public ngProgress: NgProgress) {
     super(dialogService);
   }
 
   ngOnInit() {
-    this.screenService.getNotifications().subscribe(notifications => this.notifications = notifications);
-    //
-    this.loadHoursArray();
-    this.loadMinutesArray();
-    this.loadDaysArray();
-    this.loadMinutesNotifyAgainArray();
+
+    this.ngProgress.start();
+
+    this.screenService.getNotifications().subscribe(notifications => {
+      this.notifications = notifications;
+      //
+      this.loadHoursArray();
+      this.loadMinutesArray();
+      this.loadDaysArray();
+      this.loadMinutesNotifyAgainArray();
+      //
+      this.ngProgress.done();
+    });
   }
 
   loadHoursArray() {

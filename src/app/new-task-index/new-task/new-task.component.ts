@@ -1,3 +1,4 @@
+import { NgProgress } from 'ngx-progressbar';
 import { ConfirmComponent } from '../../confirm/confirm.component';
 import { AddNotificationComponent } from './../add-notification/add-notification.component';
 import { DialogService } from 'ng2-bootstrap-modal';
@@ -79,16 +80,34 @@ export class NewTaskComponent implements OnInit, OnChanges {
   //     }
   @Input() notify: any;
 
-  constructor(private screenService: ScreenService, private dialogService: DialogService) { }
+  constructor(private screenService: ScreenService, private dialogService: DialogService, public ngProgress: NgProgress) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
   }
 
+
   ngOnInit() {
-    this.screenService.getPlaces().subscribe(places => this.places = places);
-    this.screenService.getPeriodicities().subscribe(periodicities => this.periodicities = periodicities);
-    this.screenService.getUserCheckers(1).subscribe(checkers => this.checkers = checkers);
+
+    this.screenService.getPlaces().subscribe(places => {
+      this.ngProgress.start();
+      this.places = places;
+      //
+      this.ngProgress.done();
+
+    });
+    this.screenService.getPeriodicities().subscribe(periodicities => {
+      this.ngProgress.start();
+      this.periodicities = periodicities;
+      //
+      this.ngProgress.done();
+    });
+    this.screenService.getUserCheckers(1).subscribe(checkers => {
+      this.ngProgress.start();
+      this.checkers = checkers;
+      //
+      this.ngProgress.done();
+    });
   }
 
   eraseAll() {
