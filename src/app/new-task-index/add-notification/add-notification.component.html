@@ -56,6 +56,21 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-md-5">
+          <label for="notifyEveryId">Repetir nofificação a cada: </label>
+        </div>
+        <div class="col-md-5">
+          <select name="notifyEveryId" id="notifyEvery" [(ngModel)]="notification.notify_again_every" class="form-control">  
+            <option *ngFor="let mna of minutesNotifyAgain" value="{{mna.notifyAgainEvery}}">{{mna.notifyAgainEvery}}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="notifyEveryId">Minutos</label>
+        </div>
+      </div>
+
+
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
