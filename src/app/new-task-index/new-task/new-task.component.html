@@ -52,13 +52,26 @@
         <div class="col-md-6">
           <label for="notificationId">Tipo de Notificação</label>
         </div>
-        <div class="col-md-2 ">
-          <a class="btn-floating btn waves-effect waves-light green " (click)="showAddNotificationType()" >
+        <div class="col-md-2 float-right ">
+          <a class="btn-floating btn waves-effect waves-light green " (click)="showAddNotificationType()">
             <i class="material-icons">add_circle_outline</i>
           </a>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="row list-group">
+            <li *ngFor="let n of taskCheck.notifications" class="list-group-item">
+              <div class="row">
+                <div class="col-md-4">{{n.notification_type_id}}</div>
+                <div class="col-md-4">{{n.pre_notify_days}}</div>
+                <div class="col-md-4">{{n.pre_notify_hours}}:{{n.pre_notify_minutes}}</div>
+              </div>
 
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -101,21 +114,5 @@
     <div class="col-md-4">
       <input class="btn" type="button" value="Cadastrar">
     </div>
-
   </div>
-<!-- verificar a possibilidade de insterir o componente add-notification como modal aqui-->
-   <!-- Modal Trigger -->
-   <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
-   
-     <!-- Modal Structure -->
-     <div id="modal1" class="modal modal-fixed-footer">
-       <div class="modal-content">
-         <h4>Modal Header</h4>
-         <p>A bunch of text</p>
-       </div>
-       <div class="modal-footer">
-         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-       </div>
-     </div>
-             
 </form>

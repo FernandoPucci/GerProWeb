@@ -28,7 +28,33 @@ export class NewTaskComponent implements OnInit, OnChanges {
 
   taskCheck: any = {
     days_times: [],
-    notifications: [],
+    notifications: [
+
+      // just test
+      {
+        "notification_type_id": 19,
+        "pre_notify_days": 0,
+        "pre_notify_hours": 0,
+        "pre_notify_minutes": 5,
+        "notify_again_every": 5
+      },
+      {
+        "notification_type_id": 19,
+        "pre_notify_days": 0,
+        "pre_notify_hours": 0,
+        "pre_notify_minutes": 5,
+        "notify_again_every": 5
+      },
+      {
+        "notification_type_id": 19,
+        "pre_notify_days": 0,
+        "pre_notify_hours": 0,
+        "pre_notify_minutes": 5,
+        "notify_again_every": 5
+      }
+
+
+    ],
     weeks_days: {
       sunday: false,
       monday: false,
