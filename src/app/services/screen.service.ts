@@ -23,7 +23,7 @@ export class ScreenService {
   }
 
   getUserCheckers(companyId){
-    return this.http.get(environment.SERVER_API_PATH + 'users').map(res => res.json());
+    return this.http.get(environment.SERVER_API_PATH + 'companies/users?company_id=' + companyId).map(res => res.json());
   }
 
 
