@@ -65,18 +65,25 @@ export class NotificationsComponent implements OnInit {
   }
 
   eraseNotification(_notificationToErase) {
-    console.log(_notificationToErase);
     this.notifications.splice(this.notifications.indexOf(_notificationToErase), 1);
+    this.emmitNotificationsList();
   }
 
   emmitNotificationsList(_notificationToAdd = null) {
 
     if (_notificationToAdd != null) {
       this.notifications.push(
-        _notificationToAdd     
+        _notificationToAdd
       );
     }
-    this.onNotificationAdd.emit(this.notifications);
+
+    let list = this.notifications.map(x => Object.assign({}, x));
+
+    list.forEach(item => {
+      delete item.name;
+    });
+
+    this.onNotificationAdd.emit(list);
   }
 
 }

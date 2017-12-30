@@ -10,9 +10,6 @@ import { MaterializeAction } from 'angular2-materialize';
 import * as globals from '../../globals';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
-
-
-
 @Component({
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
@@ -151,9 +148,10 @@ export class NewTaskComponent implements OnInit, OnChanges {
     };
   }
 
-  notifications_onNotificationsAdd(event) {
+  notifications_onNotificationsAdd(_notificationsList) {
 
-    this.taskCheck.notifications = event;
+
+    this.taskCheck.notifications = _notificationsList;
   }
 
 }
