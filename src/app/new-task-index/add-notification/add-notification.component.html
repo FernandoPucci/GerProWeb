@@ -12,7 +12,7 @@
         <div class="col-md-6">
           <select name="notificationId" id="notification" [(ngModel)]="notification.notification_type_id" class="form-control">
             <option value="">Selecione...</option>
-            <option *ngFor="let n of notifications" value="{{n.key_value}}">{{n.key_name | capitalize: true}}</option>
+            <option *ngFor="let n of notifications" value="{{n.key_value}}#{{n.key_name | capitalize: true}}">{{n.key_name | capitalize: true}}</option>
           </select>
         </div>
       </div>

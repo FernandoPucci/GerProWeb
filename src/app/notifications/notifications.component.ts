@@ -16,6 +16,7 @@ export class NotificationsComponent implements OnInit {
   notifications: any = [
     // just test
     {
+      "name": "XPTO",
       "notification_type_id": 19,
       "pre_notify_days": 0,
       "pre_notify_hours": 0,
@@ -23,6 +24,7 @@ export class NotificationsComponent implements OnInit {
       "notify_again_every": 5
     },
     {
+      "name": "XPTO1",
       "notification_type_id": 19,
       "pre_notify_days": 0,
       "pre_notify_hours": 0,
@@ -30,6 +32,7 @@ export class NotificationsComponent implements OnInit {
       "notify_again_every": 5
     },
     {
+      "name": "XPTO2",
       "notification_type_id": 19,
       "pre_notify_days": 0,
       "pre_notify_hours": 0,
@@ -63,14 +66,16 @@ export class NotificationsComponent implements OnInit {
 
   eraseNotification(_notificationToErase) {
     console.log(_notificationToErase);
+    this.notifications.splice(this.notifications.indexOf(_notificationToErase), 1);
   }
 
   emmitNotificationsList(_notificationToAdd = null) {
 
     if (_notificationToAdd != null) {
-      this.notifications.push(_notificationToAdd);
+      this.notifications.push(
+        _notificationToAdd     
+      );
     }
-
     this.onNotificationAdd.emit(this.notifications);
   }
 

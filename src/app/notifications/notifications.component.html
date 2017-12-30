@@ -15,7 +15,7 @@
     <div class="v-scrollable-collection">
       <li *ngFor="let n of notifications" class="collection-item">
         <div class="row">
-          <div class="col-md-3">{{n.notification_type_id}}</div>
+          <div class="col-md-3">{{n.name}}</div>
           <div class="col-md-3">{{n.pre_notify_days}}</div>
           <div class="col-md-3">{{n.pre_notify_hours | zeroLeading:2}}:{{n.pre_notify_minutes| zeroLeading:2}}</div>
           <div class="col-md-3">

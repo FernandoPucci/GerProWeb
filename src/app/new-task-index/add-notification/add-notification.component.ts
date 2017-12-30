@@ -37,6 +37,7 @@ export class AddNotificationComponent extends DialogComponent<AddNotificationMod
   notifications: any[];
   //
   notification: any = {
+    name: '',
     notification_type_id: '',
     pre_notify_days: '',
     pre_notify_hours: '',
@@ -93,6 +94,13 @@ export class AddNotificationComponent extends DialogComponent<AddNotificationMod
   confirm() {
     // we set dialog result as true on click on confirm button, 
     // then we can get dialog result from caller code 
+
+    let splitArray = this.notification.notification_type_id.split('#');
+
+    console.log(splitArray);
+    this.notification.name = splitArray[1];
+    this.notification.notification_type_id = splitArray[0];
+
     this.result = this.notification;
     this.close();
   }
