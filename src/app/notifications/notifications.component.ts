@@ -61,6 +61,10 @@ export class NotificationsComponent implements OnInit {
       });
   }
 
+  eraseNotification(_notificationToErase) {
+    console.log(_notificationToErase);
+  }
+
   emmitNotificationsList(_notificationToAdd = null) {
 
     if (_notificationToAdd != null) {
