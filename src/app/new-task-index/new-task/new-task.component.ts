@@ -30,28 +30,28 @@ export class NewTaskComponent implements OnInit, OnChanges {
     days_times: [],
     notifications: [
 
-      // just test
-      {
-        "notification_type_id": 19,
-        "pre_notify_days": 0,
-        "pre_notify_hours": 0,
-        "pre_notify_minutes": 5,
-        "notify_again_every": 5
-      },
-      {
-        "notification_type_id": 19,
-        "pre_notify_days": 0,
-        "pre_notify_hours": 0,
-        "pre_notify_minutes": 5,
-        "notify_again_every": 5
-      },
-      {
-        "notification_type_id": 19,
-        "pre_notify_days": 0,
-        "pre_notify_hours": 0,
-        "pre_notify_minutes": 5,
-        "notify_again_every": 5
-      }
+      // // just test
+      // {
+      //   "notification_type_id": 19,
+      //   "pre_notify_days": 0,
+      //   "pre_notify_hours": 0,
+      //   "pre_notify_minutes": 5,
+      //   "notify_again_every": 5
+      // },
+      // {
+      //   "notification_type_id": 19,
+      //   "pre_notify_days": 0,
+      //   "pre_notify_hours": 0,
+      //   "pre_notify_minutes": 5,
+      //   "notify_again_every": 5
+      // },
+      // {
+      //   "notification_type_id": 19,
+      //   "pre_notify_days": 0,
+      //   "pre_notify_hours": 0,implements OnInit
+      //   "pre_notify_minutes": 5,
+      //   "notify_again_every": 5
+      // }
 
 
     ],
@@ -112,7 +112,6 @@ export class NewTaskComponent implements OnInit, OnChanges {
     console.log(changes);
   }
 
-
   ngOnInit() {
 
     this.screenService.getPlaces().subscribe(places => {
@@ -139,6 +138,7 @@ export class NewTaskComponent implements OnInit, OnChanges {
   eraseAll() {
     this.taskCheck = {
       days_times: [],
+      notifications: [],
       weeks_days: {
         sunday: false,
         monday: false,
@@ -151,22 +151,9 @@ export class NewTaskComponent implements OnInit, OnChanges {
     };
   }
 
-  showAddNotificationType() {
-    let disposable = this.dialogService.addDialog(AddNotificationComponent, {
-      title: 'Adicionar Notificação',
-      message: ''
-    })
-      .subscribe((notificationToAdd) => {
-        // We get dialog result
-        if (notificationToAdd) {
-          this.taskCheck.notifications.push(notificationToAdd);
-        }
-      });
-  }
+  notifications_onNotificationsAdd(event) {
 
-  getAddedNotification(event) {
-    console.log('@@@@ ACIVATED!');
-    console.log(event);
+    this.taskCheck.notifications = event;
   }
 
 }

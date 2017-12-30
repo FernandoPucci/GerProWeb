@@ -21,6 +21,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { ZeroLeadingPipe } from './pipes/zero-leading.pipe';
 import { IndexNewTaskComponent } from 'app/new-task-index/index-new-task/index-new-task.component';
 import { NgProgress } from 'ngx-progressbar/src/services/progress.service';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 const appRoutes: Routes = [
   { path: 'newTask', component: IndexNewTaskComponent },
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
     MyTasksComponent,
     PageNotFoundComponent,
     DaysWeekComponent,
-    ConfirmComponent,
+    ConfirmComponent
     
   ],
   imports: [
@@ -64,7 +65,7 @@ const appRoutes: Routes = [
     HttpModule,
     MaterializeModule,
     RouterModule,
-    BootstrapModalModule,
+    BootstrapModalModule.forRoot({container:document.body}),
     NewTaskIndexModule,
     NgProgressModule
   ],

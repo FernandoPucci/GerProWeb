@@ -1,3 +1,4 @@
+import { NotificationsComponent } from './../notifications/notifications.component';
 import { AddNotificationComponent } from 'app/new-task-index/add-notification/add-notification.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { NgModule } from '@angular/core';
@@ -19,8 +20,9 @@ import { IndexNewTaskComponent } from './index-new-task/index-new-task.component
     NgProgressModule
   ],
   declarations: [
-    NewTaskComponent,
+    NewTaskComponent,   
     AddNotificationComponent,
+    NotificationsComponent,
     CapitalizePipe,
     ZeroLeadingPipe,
     IndexNewTaskComponent

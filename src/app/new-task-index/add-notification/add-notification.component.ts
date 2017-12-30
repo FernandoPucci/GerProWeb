@@ -27,8 +27,6 @@ const MINUTES_GAP_NOTIFY_AGAIN: number = 5;
 
 export class AddNotificationComponent extends DialogComponent<AddNotificationModel, boolean> implements AddNotificationModel, OnInit {
 
-  // @Output() notificationToAdd: EventEmitter<any> = new EventEmitter();
-
   days: any[] = [];
   hours: any[] = [];
   minutes: any[] = [];
