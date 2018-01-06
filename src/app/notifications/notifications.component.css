@@ -10,17 +10,21 @@ h5 {
   font-size: 14px;
 }
 
+i {
+  cursor: pointer;
+}
+
 li.collection-item {
   padding: 0px;
   height: 30px;
 }
 
-.v-scrollable-collection{
+.v-scrollable-collection {
   height: 150px;
   overflow-y: auto;
 }
 
-.collection-header{
+.collection-header {
   height: 50px;
   background-color: inherit;
 }
