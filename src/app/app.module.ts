@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterializeModule } from 'angular2-materialize';
 import { RouterModule, Routes } from '@angular/router';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { NgProgressModule } from 'ngx-progressbar';
@@ -63,7 +62,6 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterializeModule,
     RouterModule,
     BootstrapModalModule.forRoot({container:document.body}),
     NewTaskIndexModule,

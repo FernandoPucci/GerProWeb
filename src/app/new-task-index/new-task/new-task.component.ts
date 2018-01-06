@@ -6,7 +6,6 @@ import { CapitalizePipe } from '../../pipes/capitalize.pipe';
 import { ScreenService } from './../../services/screen.service';
 import { environment } from './../../../environments/environment';
 import { Component, OnInit, EventEmitter, Input, SimpleChanges } from '@angular/core';
-import { MaterializeAction } from 'angular2-materialize';
 import * as globals from '../../globals';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -94,7 +93,7 @@ export class NewTaskComponent implements OnInit, OnChanges {
   //                "sunday": true,
   //                "monday": true,
   //                "tuesday": true,
-  //                "wednesday": tMaterializeActionrue,
+  //                "wednesday": true,
   //                "thursday": true,
   //                "friday": true,.target.
   //                "saturday": true
