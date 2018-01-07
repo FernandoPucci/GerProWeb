@@ -3,34 +3,34 @@
     {{taskCheck | json}}
   </div>
 </div>
-<form #f="ngForm">
+<form #f="ngForm" class="form-group">
 
-  <div class="row">
-    <div class="input-group form-group">
-      <div class="row">
-        <div class="col-6">
-          <input id="txtTaskName" name="name" [(ngModel)]="taskCheck.name" type="text" class="form-control" placeholder="Tarefa" aria-describedby="txtTaskName">
-        </div>
-        <div class="col-6">
-          <input id="txtTaskDescription" name="description" [(ngModel)]="taskCheck.description" type="text" class="form-control" placeholder="Descrição da Tarefa"
-            aria-describedby="txtTaskDescription">
-        </div>
-      </div>
+
+  
+    <div class="form-group">
+
+
+      <label for="txtTaskName">Tarefa:</label>
+      <input id="txtTaskName" name="name" [(ngModel)]="taskCheck.name" class="form-control" placeholder="Digite aqui o nome da tarefa" aria-describedby="txtTaskName">
+
+
+      <label for="txtTaskDescription">Descrição:</label>
+      <input id="txtTaskDescription" name="description" [(ngModel)]="taskCheck.description" type="text" class="form-control" placeholder="Preencha com uma breve Descrição da Tarefa"
+        aria-describedby="txtTaskDescription">
+
+
     </div>
-  </div>
+
 
   <div class="row form-group">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <label for="checkerId">Conferente:</label>
       <select name="checkerId" id="checker" [(ngModel)]="taskCheck.user_checker_id" class="form-control">
         <option value="0">Selecione...</option>
         <option *ngFor="let c of checkers" value="{{c.id}}">{{c.name}}</option>
       </select>
     </div>
-  </div>
-
-  <div class="row form-group">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <label for="place">Locais:</label>
       <select name="placeId" id="place" [(ngModel)]="taskCheck.place_id" class="form-control">
         <option value="">Selecione...</option>
@@ -38,6 +38,7 @@
       </select>
     </div>
   </div>
+
   <div class="row form-group">
     <div class="col-md-6">
       <label for="periodicity">Periodicidade:</label>
@@ -57,39 +58,39 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row form-group check-group">
     <div class="col-md-12">
 
       <input id=chkSunday type="checkbox" [(ngModel)]=taskCheck.weeks_days.sunday name="sunday" />
-      <label for="chkSunday">Dom</label>
+      <label class= "lblChk" for="chkSunday">Dom</label>
       <input id=chkMonday type="checkbox" [(ngModel)]=taskCheck.weeks_days.monday name="monday" />
-      <label for="chkMonday">Seg</label>
+      <label class= "lblChk" for="chkMonday">Seg</label>
 
       <input id=chkTuesday type="checkbox" [(ngModel)]=taskCheck.weeks_days.tuesday name="tuesday" />
-      <label for="chkTuesday">Ter</label>
+      <label class= "lblChk" for="chkTuesday">Ter</label>
 
       <input id=chkWednesday type="checkbox" [(ngModel)]=taskCheck.weeks_days.wednesday name="wednesday" />
-      <label for="chkWednesday">Qua</label>
+      <label class= "lblChk" for="chkWednesday">Qua</label>
 
       <input id=chkThursday type="checkbox" [(ngModel)]=taskCheck.weeks_days.thursday name="thursday" />
-      <label for="chkThursday">Qui</label>
+      <label class= "lblChk" for="chkThursday">Qui</label>
 
       <input id=chkFriday type="checkbox" [(ngModel)]=taskCheck.weeks_days.friday name="friday" />
-      <label for="chkFriday">Sex</label>
+      <label class= "lblChk" for="chkFriday">Sex</label>
 
       <input id=chkSaturday type="checkbox" [(ngModel)]=taskCheck.weeks_days.saturday name="saturday" />
-      <label for="chkSaturday">Sáb</label>
+      <label class= "lblChk" for="chkSaturday">Sáb</label>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-1"></div>
+    <div class="col-md-2"></div>
     <div class="col-md-4">
-      <input class="btn" (click)="eraseAll()" type="button" value="Limpar">
+      <button class="btn btn-primary" (click)="eraseAll()" type="reset">Limpar</button>
     </div>
-    <div class="col-md-1"></div>
+    <div class="col-md-2"></div>
     <div class="col-md-4">
-      <input class="btn" type="button" value="Cadastrar">
+      <button class="btn btn-primary" type="submit">Cadastrar</button>
     </div>
   </div>
 </form>

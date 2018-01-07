@@ -15,3 +15,23 @@
 .test2{
     background: green;
 }
+
+.check-group{
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.lblChk{
+    cursor: pointer;
+}
+
+.check-group input{  
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    background-color: blue;
+}
