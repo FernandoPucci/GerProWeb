@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import * as _ from 'lodash';
 import * as globals from './globals';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,6 +12,15 @@ export class AppComponent {
 
   title = globals.APP_TITLE;
   version = globals.VERSION;
-  
-  //list = _.map([1,2,3], (n) => `# ${n}`); //lodash example
+
+  constructor(
+    private router: Router
+  ) { }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+
+  }
+
 }

@@ -9,7 +9,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { NgProgressModule } from 'ngx-progressbar';
 
-
 import { AppComponent } from './app.component';
 import { NewTaskIndexModule } from './new-task-index/new-task-index.module';
 import { MyTasksComponent } from './my-tasks/my-tasks.component';
@@ -21,29 +20,34 @@ import { ZeroLeadingPipe } from './pipes/zero-leading.pipe';
 import { IndexNewTaskComponent } from 'app/new-task-index/index-new-task/index-new-task.component';
 import { NgProgress } from 'ngx-progressbar/src/services/progress.service';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
+import { appRouting } from './app.routing';
+import { AppService } from './app.service';
 
-const appRoutes: Routes = [
-  { path: 'newTask', component: IndexNewTaskComponent },
-  { path: 'myTasks', component: MyTasksComponent },
-  {
-    path: 'new-task',
-    component: NewTaskIndexModule,
-    data: { title: 'Nova Tarefa' }
-  },
-  {
-    path: 'my-tasks',
-    component: MyTasksComponent,
-    data: { title: 'Minhas Tarefas' }
-  }
-  ,
-  {
-    path: '',
-    redirectTo: '#',
-    pathMatch: 'full'
-  }
-  // ,
-  // { path: '**', component: PageNotFoundComponent }
-];
+// const appRoutes: Routes = [
+//   { path: 'login', component: LoginComponent},
+//    { path: 'newTask', component: IndexNewTaskComponent },
+//    { path: 'myTasks', component: MyTasksComponent },
+//   {
+//     path: 'new-task',
+//     component: NewTaskIndexModule,
+//     data: { title: 'Nova Tarefa' }
+//   },
+//   {
+//     path: 'my-tasks',
+//     component: MyTasksComponent,
+//     data: { title: 'Minhas Tarefas' }
+//   }
+//   ,
+//   {
+//     path: '',
+//     redirectTo: '#',
+//     pathMatch: 'full'
+//   }
+//   // ,
+//   // { path: '**', component: PageNotFoundComponent }
+// ];
 
 @NgModule({
   declarations: [
@@ -51,23 +55,28 @@ const appRoutes: Routes = [
     MyTasksComponent,
     PageNotFoundComponent,
     DaysWeekComponent,
-    ConfirmComponent
-    
+    ConfirmComponent,
+    LoginComponent
+
   ],
   imports: [
-    RouterModule.forRoot(
-      appRoutes,
-      //  { enableTracing: true } // <-- debugging purposes only
-    ),
+    // RouterModule.forRoot(
+    //     appRoutes,
+    //     //  { enableTracing: true } // <-- debugging purposes only
+    //   ),
+    appRouting,
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule,
-    BootstrapModalModule.forRoot({container:document.body}),
+    BootstrapModalModule.forRoot({ container: document.body }),
     NewTaskIndexModule,
     NgProgressModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AppService
+  ],
   entryComponents: [
   ],
   bootstrap: [AppComponent]
