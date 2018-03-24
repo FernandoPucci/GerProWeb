@@ -5,17 +5,18 @@
   </button>
   <a class="navbar-brand" href="#">
     <img src="/assets/images/gerpro-nav.png">&nbsp;{{title}}</a>
-  <ng-progress [color]="'white'" [direction]="'rightToLeftIncreased'" ></ng-progress>
-
-  <ul>
-    <li>
-      <a class="nav-link" routerLink="/newTask" routerLinkActive="active">Nova Tarefa</a>
-    </li>
-    <li>
-      <a class="nav-link" routerLink="/myTasks" routerLinkActive="active">Minhas Tarefas</a>
-    </li>  
-  </ul>
-  <button class="btn btn-outline-info my-2 my-sm-0" type="button" type="button" (click)="logout()">Sair</button>
+  <ng-progress [color]="'white'" [direction]="'rightToLeftIncreased'"></ng-progress>
+  <div *ngIf="showBar">
+    <ul>
+      <li>
+        <a class="nav-link" routerLink="/newTask" routerLinkActive="active">Nova Tarefa</a>
+      </li>
+      <li>
+        <a class="nav-link" routerLink="/myTasks" routerLinkActive="active">Minhas Tarefas</a>
+      </li>
+    </ul>
+    <button class="btn btn-outline-info my-2 my-sm-0" type="button" type="button" (click)="logout()">Sair</button>
+  </div>
 </nav>
 
 <div class="router">
