@@ -148,8 +148,6 @@ export class NewTaskComponent implements OnInit, OnChanges {
   }
 
   notifications_onNotificationsAdd(_notificationsList) {
-
-
     this.taskCheck.notifications = _notificationsList;
   }
 

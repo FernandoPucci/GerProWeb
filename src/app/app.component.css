@@ -40,7 +40,7 @@ nav li a {
 
 a.navbar-brand {
   color: #fff !important;
-}
+}u
 
 nav li a:hover {
   background: rgba(156, 162, 167, 0.5);
@@ -62,3 +62,5 @@ nav a {
   position: fixed;
   color: #fff;
 }
+
+
