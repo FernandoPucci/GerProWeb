@@ -6,10 +6,8 @@ import { NewTaskComponent } from './new-task-index/new-task/new-task.component';
 import { MyTasksComponent } from './my-tasks/my-tasks.component';
 
 const appRoutes: Routes = [
-    { path: '', component: AppComponent },
+    { path: '', component: LoginComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'newTask', component: NewTaskComponent},
-    { path: 'myTasks', component: MyTasksComponent}
 
 ];
 

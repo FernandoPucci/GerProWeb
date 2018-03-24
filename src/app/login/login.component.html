@@ -1,23 +1,25 @@
-{{dataSource | json}}
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4">
     <div class="jumbotron">
       <form (submit)="onSubmit()">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="form-group">
               <label for="txtUsuario">Usuário</label>
               <input type="text" class="form-control" id="txtUsuario" placeholder="Digite o usuário" name="Usuario" [(ngModel)]="dataSource.Usuario">
             </div>
           </div>
-          <div class="col-md-6">
+        </div>
+        <div class="row">
+          <div class="col-md-12">
             <div class="form-group">
               <label for="txtSenha">Senha</label>
               <input type="password" class="form-control" id="txtSenha" placeholder="Digite a senha" name="Senha" [(ngModel)]="dataSource.Senha">
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-md-12">
             <button type="submit" class="btn btn-primary float-right">Autenticar</button>
