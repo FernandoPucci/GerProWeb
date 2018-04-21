@@ -1,6 +1,5 @@
 
 import { NewTaskComponent } from './new-task-index/new-task/new-task.component';
-import { AddNotificationComponent } from './new-task-index/add-notification/add-notification.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -25,30 +24,6 @@ import { AuthGuard } from './auth.guard';
 import { appRouting } from './app.routing';
 import { AppService } from './app.service';
 
-// const appRoutes: Routes = [
-//   { path: 'login', component: LoginComponent},
-//    { path: 'newTask', component: IndexNewTaskComponent },
-//    { path: 'myTasks', component: MyTasksComponent },
-//   {
-//     path: 'new-task',
-//     component: NewTaskIndexModule,
-//     data: { title: 'Nova Tarefa' }
-//   },
-//   {
-//     path: 'my-tasks',
-//     component: MyTasksComponent,
-//     data: { title: 'Minhas Tarefas' }
-//   }
-//   ,
-//   {
-//     path: '',
-//     redirectTo: '#',
-//     pathMatch: 'full'
-//   }
-//   // ,
-//   // { path: '**', component: PageNotFoundComponent }
-// ];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,10 +35,6 @@ import { AppService } from './app.service';
 
   ],
   imports: [
-    // RouterModule.forRoot(
-    //     appRoutes,
-    //     //  { enableTracing: true } // <-- debugging purposes only
-    //   ),
     appRouting,
     BrowserModule,
     FormsModule,

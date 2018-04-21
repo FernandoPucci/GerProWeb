@@ -1,6 +1,5 @@
 import { NgProgress } from 'ngx-progressbar';
 import { ConfirmComponent } from '../../confirm/confirm.component';
-import { AddNotificationComponent } from './../add-notification/add-notification.component';
 import { CapitalizePipe } from '../../pipes/capitalize.pipe';
 import { ScreenService } from './../../services/screen.service';
 import { environment } from './../../../environments/environment';

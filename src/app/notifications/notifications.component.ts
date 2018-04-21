@@ -1,6 +1,5 @@
 import { ScreenService } from './../services/screen.service';
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { AddNotificationComponent } from 'app/new-task-index/add-notification/add-notification.component';
 import { NgProgress } from 'ngx-progressbar';
 import { NgbActiveModal, NgbModalRef, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
