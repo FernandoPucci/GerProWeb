@@ -87,7 +87,7 @@ export class NotificationsComponent implements OnInit {
     if (this.notifications != null && this.notifications.length > 0) {
       this.emmitNotificationsList();
     }
-    
+
     this.screenService.getNotifications().subscribe(notifications => {
       this.notificationsModal = notifications;
       //
@@ -110,13 +110,27 @@ export class NotificationsComponent implements OnInit {
   }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
-        return 'by pressing ESC';
+      return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-        return 'by clicking on a backdrop';
+      return 'by clicking on a backdrop';
     } else {
-        return `with: ${reason}`;
+      return `with: ${reason}`;
     }
-}
+  }
+
+  onSubmit(content) {
+    let splitArray = this.notification.notification_type_id.split('#');
+
+    this.notification.name = splitArray[1];
+    this.notification.notification_type_id = splitArray[0];
+
+    console.log(this.notification);
+    this.emmitNotificationsList(this.notification);
+
+    this.modal.close(content);
+
+
+  }
   loadHoursArray() {
     for (let index = 0; index <= MAXIMUM_HOURS_PRE_NOTIFY; index++) {
       this.hours.push({ hour: index });

@@ -5,7 +5,7 @@
     <!-- <div class="vertical-alignment-helper"> -->
       <!-- <div class="modal-dialog vertical-align-center"> -->
         <!-- <div class="modal-content"> -->
-
+            <form (submit)="onSubmit(content)">
         <div class="modal-header">
           <h5 class="modal-title" id="modalLoginTitulo">Adicionar notificação</h5>
           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -14,7 +14,7 @@
         </div>
 
         <div class="modal-body">
-          <form (submit)="onSubmit()">
+         
             <div class="row">
               <div class="col-md-6">
                 <label for="notificationId">Tipo de Notificação</label>
@@ -60,7 +60,7 @@
                 <select name="daysBeforeId" id="daysBefore" [(ngModel)]="notification.pre_notify_days" class="form-control">
                   <option *ngFor="let d of days" value="{{d.day}}">{{d.day}}</option>
                 </select>
-              </div>notifications
+              </div>
               <div class="col-md-2">
                 <label for="daysBeforeId">Dias</label>
               </div>
@@ -79,12 +79,13 @@
                 <label for="notifyEveryId">Minutos</label>
               </div>
             </div>
-          </form>
+      
         </div>
         <div class="modal-footer">
           <button type="button" type="submit" class="btn btn-primary">OK</button>
           <button type="button" class="btn btn-default" (click)="d('Cross click')">Cancel</button>
         </div>
+      </form>
       <!-- </div> -->
       <!-- </div> -->
     <!-- </div> -->
