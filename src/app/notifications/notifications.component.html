@@ -1,3 +1,100 @@
+<!-- MODAL BEGIN -->
+<ng-template #content let-c="close" let-d="dismiss">
+
+  <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
+    <!-- <div class="vertical-alignment-helper"> -->
+      <!-- <div class="modal-dialog vertical-align-center"> -->
+        <!-- <div class="modal-content"> -->
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLoginTitulo">Adicionar notificação</h5>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form (submit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="notificationId">Tipo de Notificação</label>
+              </div>
+              <div class="col-md-6">
+                <select name="notificationId" id="notification" [(ngModel)]="notification.notification_type_id" class="form-control">
+                  <option value="">Selecione...</option>
+                  <option *ngFor="let n of notificationsModal" value="{{n.key_value}}#{{n.key_name | capitalize: true}}">{{n.key_name | capitalize: true}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <label for="hoursBeforeId">Avisar antes:</label>
+              </div>
+              <div class="col-md-5">
+                <select name="hoursBeforeId" id="hoursBefore" [(ngModel)]="notification.pre_notify_hours" class="form-control">
+                  <option *ngFor="let h of hours" value="{{h.hour | zeroLeading:2}}">{{h.hour | zeroLeading:2}}</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label for="hoursBeforeId">Horas</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5">
+              </div>
+              <div class="col-md-5">
+                <select name="minutesBeforeId" id="minutesBefore" [(ngModel)]="notification.pre_notify_minutes" class="form-control">
+                  <option *ngFor="let m of minutes" value="{{m.minute | zeroLeading:2}}">{{m.minute | zeroLeading:2}}</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label for="minutesBeforeId">Minutos</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5">
+              </div>
+              <div class="col-md-5">
+                <select name="daysBeforeId" id="daysBefore" [(ngModel)]="notification.pre_notify_days" class="form-control">
+                  <option *ngFor="let d of days" value="{{d.day}}">{{d.day}}</option>
+                </select>
+              </div>notifications
+              <div class="col-md-2">
+                <label for="daysBeforeId">Dias</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5">
+                <label for="notifyEveryId">Repetir nofificação a cada: </label>
+              </div>
+              <div class="col-md-5">
+                <select name="notifyEveryId" id="notifyEvery" [(ngModel)]="notification.notify_again_every" class="form-control">
+                  <option *ngFor="let mna of minutesNotifyAgain" value="{{mna.notifyAgainEvery}}">{{mna.notifyAgainEvery}}</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label for="notifyEveryId">Minutos</label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" type="submit" class="btn btn-primary">OK</button>
+          <button type="button" class="btn btn-default" (click)="d('Cross click')">Cancel</button>
+        </div>
+      <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+</ng-template>
+
+
+<!-- MODAL END -->
+
+
 <ul class="collection with-header ">
   <li class="collection-header">
     <div class="row">
@@ -5,7 +102,8 @@
         <h5>Tipos de Notificações</h5>
       </div>
       <div class="col-md-2">
-        <a class="secondary-content btn-flat"  data-toggle="modal" data-target="#myModal" (click)="showAddNotificationType()">
+        <!-- <a class="secondary-content btn-flat"  data-toggle="modal" data-target="#myModal" (click)="showAddNotificationType()"> -->
+        <a class="secondary-content btn-flat" data-toggle="modal" data-target="#myModal" (click)="open(content)">
           <i class="material-icons">add_circle_outline</i>
         </a>
       </div>

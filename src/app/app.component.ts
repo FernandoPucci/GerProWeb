@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { AppService } from './app.service';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,7 +27,6 @@ export class AppComponent implements AfterContentChecked {
   }
 
   ngAfterContentChecked(): void {
-    console.log('frur');
     this.checkBar();
   }
 

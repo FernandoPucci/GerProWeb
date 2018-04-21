@@ -1,19 +1,19 @@
 import { NgProgress } from 'ngx-progressbar';
 import { ConfirmComponent } from '../../confirm/confirm.component';
 import { AddNotificationComponent } from './../add-notification/add-notification.component';
-import { DialogService } from 'ng2-bootstrap-modal';
 import { CapitalizePipe } from '../../pipes/capitalize.pipe';
 import { ScreenService } from './../../services/screen.service';
 import { environment } from './../../../environments/environment';
 import { Component, OnInit, EventEmitter, Input, SimpleChanges } from '@angular/core';
 import * as globals from '../../globals';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
   styleUrls: ['./new-task.component.css'],
-  providers: [ScreenService]
+  providers: [ScreenService, NgbModal]
 })
 export class NewTaskComponent implements OnInit, OnChanges {
 
@@ -102,7 +102,7 @@ export class NewTaskComponent implements OnInit, OnChanges {
   //     }
   @Input() notify: any;
 
-  constructor(private screenService: ScreenService, private dialogService: DialogService, public ngProgress: NgProgress) { }
+  constructor(private screenService: ScreenService,  public ngProgress: NgProgress) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);

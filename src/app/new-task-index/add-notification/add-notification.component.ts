@@ -1,6 +1,4 @@
 import { ScreenService } from './../../services/screen.service';
-import { DialogService } from 'ng2-bootstrap-modal';
-import { DialogComponent } from 'ng2-bootstrap-modal';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgProgress } from 'ngx-progressbar';
 export interface AddNotificationModel {
@@ -25,7 +23,7 @@ const MINUTES_GAP_NOTIFY_AGAIN: number = 5;
   providers: [ScreenService]
 })
 
-export class AddNotificationComponent extends DialogComponent<AddNotificationModel, boolean> implements AddNotificationModel, OnInit {
+export class AddNotificationComponent implements AddNotificationModel, OnInit {
 
   days: any[] = [];
   hours: any[] = [];
@@ -45,8 +43,8 @@ export class AddNotificationComponent extends DialogComponent<AddNotificationMod
     notify_again_every: 0
   };
 
-  constructor(dialogService: DialogService, private screenService: ScreenService, public ngProgress: NgProgress) {
-    super(dialogService);
+  constructor(private screenService: ScreenService, public ngProgress: NgProgress) {
+
   }
 
   ngOnInit() {
@@ -101,7 +99,7 @@ export class AddNotificationComponent extends DialogComponent<AddNotificationMod
     this.notification.name = splitArray[1];
     this.notification.notification_type_id = splitArray[0];
 
-    this.result = this.notification;
-    this.close();
+    // this.result = this.notification;
+    // this.close();
   }
 }

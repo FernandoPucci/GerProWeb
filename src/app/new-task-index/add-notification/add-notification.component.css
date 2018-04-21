@@ -1,4 +1,4 @@
-.modal {
+/*.modal {
 }
 .vertical-alignment-helper {
     display:table;
@@ -6,14 +6,14 @@
     width: 50%;
 }
 .vertical-align-center {
-    /* To center vertically */
+ 
     display: table-cell;
     vertical-align: middle;
 }
 .modal-content {
-    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+ 
     width:inherit;
     height:inherit;
-    /* To center horizontally */
+ 
     margin: 0 auto;
-}
+}*/
