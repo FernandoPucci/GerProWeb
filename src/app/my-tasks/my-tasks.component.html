@@ -1,3 +1,24 @@
-<h3>
-  my-tasks works!
-</h3>
+<div class="container">
+  <h2>
+    Minhas Tarefas Pendentes
+  </h2>
+
+  <!-- JSON original: {{taskChecks | json}} -->
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Quando</th>
+        <th>O que</th>
+        <th colspan="2">Onde</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of taskChecks">
+        <td>{{row.task_check.next_execution |  date: "dd/MM/yyyy HH:mm:ss"}}</td>
+        <td>{{row.task_check.name}}</td>
+        <td>{{row.task_check.place_name}}</td>
+        <td><button class="waves-effect waves-light btn">Detalhes</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

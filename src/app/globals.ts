@@ -6,6 +6,7 @@ export const VERSION = '0.0.1';
 
 // REMOVE AFTER SECURITY
 export const DEFAULT_COMPANY = 1;
+export const DEFAULT_USER = 2;
 
 export const DAYS_WEEKS = [
     { name: 'Domingo', day: 'sunday', check: false },
